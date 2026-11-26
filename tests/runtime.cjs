@@ -265,7 +265,12 @@ const cases = [
 			});
 		});
 		await fs.writeFile(path.join(runDir, label + '.log'), result.out + '\n' + result.err);
-		if (!allowFailure) assert.equal(result.code, 0, `${label} failed; see ${runDir}`);
+		if (!allowFailure)
+			assert.equal(
+				result.code,
+				0,
+				`${label} failed:\n${result.out}\n${result.err}\nEvidence: ${runDir}`,
+			);
 		return result;
 	}
 	function workflow(id, entries) {

@@ -60,7 +60,7 @@ Search operations request one page at a time. For eBay, set **Page**. For Meta, 
 
 ## Compatibility
 
-Requires n8n **2.46.1 or later**. Tested with n8n **2.49.7** and Node.js 22. Uses n8n's declarative HTTP routing with no external runtime dependencies.
+Requires n8n **2.46.1 or later**. Tested with n8n **2.49.7** and Node.js 24. Uses n8n's declarative HTTP routing with no external runtime dependencies.
 
 ## Development
 
