@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm run lint
+      - run: npm run build
+      - name: Install the test runtime
+        run: npm install --prefix "$RUNNER_TEMP/n8n-runtime" n8n@2.49.7 --no-audit --no-fund --legacy-peer-deps
+      - name: Test requests and responses in n8n
+        run: N8N_BINARY="$RUNNER_TEMP/n8n-runtime/node_modules/.bin/n8n" npm test
+      - name: Check npm package contents
+        run: npm pack --dry-run

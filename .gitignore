@@ -1,0 +1,8 @@
+dist
+node_modules
+.agents/
+.vscode/
+AGENTS.md
+CLAUDE.md
+*.tgz
+.npmrc

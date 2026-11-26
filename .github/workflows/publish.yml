@@ -1,0 +1,33 @@
+name: Publish
+on:
+  push:
+    tags: ['*.*.*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    uses: ./.github/workflows/ci.yml
+  publish:
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Check release tag
+        env:
+          RELEASE_REF_TYPE: ${{ github.ref_type }}
+          RELEASE_REF_NAME: ${{ github.ref_name }}
+        run: node -e 'const p = require("./package.json"); if (process.env.RELEASE_REF_TYPE !== "tag" || process.env.RELEASE_REF_NAME !== p.version) throw new Error("Use a tag matching package.json version");'
+      - run: npm install --global npm@11.19.1 --no-audit --no-fund
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm run build
+      - name: Stage with npm provenance
+        run: npm stage publish --access public --provenance

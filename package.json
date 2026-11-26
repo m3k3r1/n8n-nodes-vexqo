@@ -1,0 +1,67 @@
+{
+	"name": "n8n-nodes-vexqo",
+	"version": "0.1.0",
+	"description": "Vexqo public ads, social posts and ecommerce data for n8n",
+	"license": "MIT",
+	"homepage": "https://vexqo.dev",
+	"keywords": [
+		"n8n-community-node-package",
+		"vexqo",
+		"meta-ads",
+		"shopify",
+		"ebay",
+		"tiktok",
+		"instagram"
+	],
+	"author": {
+		"name": "Miguel Dias",
+		"url": "https://github.com/m3k3r1",
+		"email": "hello@vexqo.dev"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/m3k3r1/n8n-nodes-vexqo.git"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease",
+		"test": "node tests/runtime.cjs"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/VexqoApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Vexqo/Vexqo.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "0.58.7",
+		"eslint": "9.32.0",
+		"prettier": "3.6.2",
+		"release-it": "^21.1.0",
+		"typescript": "5.9.2"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	},
+	"bugs": {
+		"url": "https://github.com/m3k3r1/n8n-nodes-vexqo/issues"
+	},
+	"engines": {
+		"node": ">=22.16"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

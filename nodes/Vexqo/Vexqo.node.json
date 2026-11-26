@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-vexqo",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Marketing & Content", "Analytics"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://docs.vexqo.dev/quickstart"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/m3k3r1/n8n-nodes-vexqo#readme"
+			}
+		]
+	}
+}
