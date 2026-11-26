@@ -6,9 +6,9 @@ One Vexqo API key covers every operation. Requests use your Vexqo credits.
 
 ## Installation
 
-The first npm release is being prepared. This node is not yet verified for n8n Cloud.
+This node is available for self-hosted n8n. It is not yet verified for n8n Cloud.
 
-Once published, install `n8n-nodes-vexqo` in self-hosted n8n from **Settings → Community nodes → Install**. See the [n8n installation guide](https://docs.n8n.io/integrations/community-nodes/installation/).
+Install [`n8n-nodes-vexqo`](https://www.npmjs.com/package/n8n-nodes-vexqo) from **Settings → Community nodes → Install**. See the [n8n installation guide](https://docs.n8n.io/integrations/community-nodes/installation/).
 
 ## Credentials
 

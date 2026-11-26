@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 — unreleased
+## 0.1.0 — 2026-11-26
 
 - Add 12 operations for Meta ads, eBay, TikTok, Instagram, Shopify, product research and account details.
 - Add a masked API credential with an account connection test.
